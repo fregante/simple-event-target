@@ -1,0 +1,10 @@
+{
+	"extends": "@sindresorhus/tsconfig",
+	"compilerOptions": {
+		"outDir": "."
+	},
+	"files": [
+		"index.ts",
+		"index.test.ts"
+	]
+}

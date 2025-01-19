@@ -1,0 +1,44 @@
+{
+	"name": "simple-event-target",
+	"version": "0.0.1",
+	"description": "Thinnest possible wrapper around native events. It simplifies typing the custom event detail",
+	"keywords": [
+		"event target",
+		"event emitter",
+		"emitter",
+		"typescript",
+		"event"
+	],
+	"repository": "fregante/simple-event-target",
+	"funding": "https://github.com/sponsors/fregante",
+	"license": "MIT",
+	"author": "Federico Brigante <me@fregante.com> (https://fregante.com)",
+	"type": "module",
+	"exports": "./index.js",
+	"types": "./index.d.ts",
+	"files": [
+		"index.d.ts",
+		"index.js"
+	],
+	"scripts": {
+		"build": "tsc",
+		"prepack": "tsc --sourceMap false",
+		"test": "tsc --noEmit && xo && vitest run",
+		"test:watch": "vitest",
+		"watch": "tsc --watch"
+	},
+	"xo": {
+		"envs": [
+			"browser"
+		]
+	},
+	"devDependencies": {
+		"@sindresorhus/tsconfig": "^7.0.0",
+		"typescript": "^5.7.3",
+		"vitest": "^3.0.2",
+		"xo": "^0.60.0"
+	},
+	"engines": {
+		"node": ">=18.7"
+	}
+}
