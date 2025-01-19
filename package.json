@@ -1,6 +1,6 @@
 {
 	"name": "simple-event-target",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "Thinnest possible wrapper around native events. It simplifies typing the custom event detail",
 	"keywords": [
 		"event target",
