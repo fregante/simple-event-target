@@ -18,11 +18,11 @@ export default class SimpleEventTarget<Detail = void> {
 	readonly #target = new EventTarget();
 	readonly #weakListeners = new WeakMap<SimpleEventListener<Detail>, EventListener>();
 
-	listen(callback: SimpleEventListener<Detail>, options?: SimpleEventListenerOptions): void {
+	subscribe(callback: SimpleEventListener<Detail>, options?: SimpleEventListenerOptions): void {
 		this.#target.addEventListener(eventType, this.#getNativeListener(callback), options);
 	}
 
-	unlisten(callback: SimpleEventListener<Detail>): void {
+	unsubscribe(callback: SimpleEventListener<Detail>): void {
 		this.#target.removeEventListener(eventType, this.#getNativeListener(callback));
 	}
 

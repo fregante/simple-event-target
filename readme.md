@@ -19,7 +19,7 @@ import SimpleEventTarget from 'simple-event-target';
 type Info = {level: 'light' | 'right' | 'coal'};
 const toasts = new SimpleEventTarget<Info>();
 
-toasts.listen(info => {
+toasts.subscribe(info => {
 	console.log('Toast popped as', info.level);
 })
 
@@ -43,25 +43,25 @@ type Info = {level: 'light' | 'right' | 'coal'};
 const toasts = new SimpleEventTarget<Info>();
 ```
 
-#### SimpleEventTarget#listen(listener)
+#### SimpleEventTarget#subscribe(listener)
 
 Adds a listener to the target, the listener will be called with the emitted value.
 
 Calling it multiple times with the same listener will not add it multiple times, just like the native `EventTarget`.
 
 ```ts
-toasts.listen(spread => console.log(`You’ve got a ${spread} toast`));
+toasts.subscribe(spread => console.log(`You’ve got a ${spread} toast`));
 ```
 
-#### SimpleEventTarget#unlisten(listener)
+#### SimpleEventTarget#unsubscribe(listener)
 
 Removes a previously-added listener from the target.
 
 
 ```ts
 const listener = spread => console.log(`You’ve got a ${spread} toast`);
-toasts.listen(listener);
-toasts.unlisten(listener);
+toasts.subscribe(listener);
+toasts.unsubscribe(listener);
 ```
 
 #### SimpleEventTarget#emit(value)
@@ -69,7 +69,7 @@ toasts.unlisten(listener);
 Calls all the registered listener by passing the value as the main argument:
 
 ```js
-toasts.listen(console.log);
+toasts.subscribe(console.log);
 toasts.emit('Jam');
 // -> logs 'Jam'
 ```
