@@ -16,14 +16,14 @@ npm install simple-event-target
 ```ts
 import SimpleEventTarget from 'simple-event-target';
 
-type Info = {level: 'light' | 'right' | 'coal'};
+type Info = {level: 'light' | 'golden' | 'coal'};
 const toasts = new SimpleEventTarget<Info>();
 
 toasts.subscribe(info => {
 	console.log('Toast popped as', info.level);
 })
 
-toasts.emit('right');
+toasts.emit({level: 'golden'});
 ```
 
 ## API
@@ -39,7 +39,7 @@ const toasts = new SimpleEventTarget();
 In TypeScript you can also specify the event contents type if used:
 
 ```ts
-type Info = {level: 'light' | 'right' | 'coal'};
+type Info = {level: 'light' | 'golden' | 'coal'};
 const toasts = new SimpleEventTarget<Info>();
 ```
 
