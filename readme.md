@@ -76,6 +76,18 @@ toasts.emit('Jam');
 
 Error handling is the same as using `dispatchEvent` on `EventTarget`.
 
+#### SimpleEventTarget#raw
+
+Sometimes you might want to access the underlying `EventTarget` instance:
+
+```js
+toasts.raw.eventTarget.addEventListener(toasts.raw.eventType, event => {
+	console.log('This is the real event object', event);
+});
+```
+
+Note that dispatching events or listening to events directly circumvents the type safety of the `SimpleEventTarget` wrapper.
+
 ## License
 
 MIT © [Federico Brigante](https://fregante.com)

@@ -15,6 +15,13 @@ const eventType = 'batik';
  *   smokeSignals.emit('The BBQ is ready');
  */
 export default class SimpleEventTarget<Detail = void> {
+	/**
+	 * @deprecated Only for advanced use cases. Using this will break the type safety.
+	 */
+	get raw() {
+		return {eventType, eventTarget: this.#target};
+	}
+
 	readonly #target = new EventTarget();
 	readonly #weakListeners = new WeakMap<SimpleEventListener<Detail>, EventListener>();
 
