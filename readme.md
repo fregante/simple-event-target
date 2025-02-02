@@ -5,6 +5,8 @@
 
 > Thinnest possible wrapper around native events. It simplifies typing the custom event detail.
 
+**Sponsored by [PixieBrix](https://www.pixiebrix.com)** :tada:
+
 ## Install
 
 ```sh
