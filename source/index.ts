@@ -11,7 +11,7 @@ const eventType = 'batik';
  *
  * @usage
  *   const smokeSignals = new SimpleEventTarget();
- *   smokeSignals.add(details => console.log(details))
+ *   smokeSignals.subscribe(details => console.log(details))
  *   smokeSignals.emit('The BBQ is ready');
  */
 export default class SimpleEventTarget<Detail = void> {
@@ -32,7 +32,7 @@ export default class SimpleEventTarget<Detail = void> {
 
 	// Permanently map simplified callbacks to native listeners.
 	// This acts as a memoization/deduplication which matches the native behavior.
-	// Calling `add(cb); add(cb); remove(cb)` should only add it once and remove it once.
+	// Calling `subscribe(cb); subscribe(cb); unsubscribe(cb)` should only add it once and remove it once.
 	#getNativeListener(
 		callback: SimpleEventListener<Detail>,
 	): EventListener {
